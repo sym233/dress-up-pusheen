@@ -608,25 +608,23 @@ class SvgRoot extends React.Component {
         const h = this.props.height;
         return (React.createElement("svg", { width: w * s, height: h * s, 
             // Drag elements related events
-            onMouseMove: (event) => this.mouseMoveHandler(event), onMouseUp: (event) => this.mouseUpOrLeaveHandler(event), onMouseLeave: (event) => this.mouseUpOrLeaveHandler(event) },
-            React.createElement(Draggable_1.default, { transform: Matrix2D_1.default.scale(s) }, this.props.children)));
+            onMouseMove: (event) => this.mouseMoveHandler(event), onMouseUp: (event) => this.mouseUpOrLeaveHandler(event), onMouseLeave: (event) => this.mouseUpOrLeaveHandler(event) }, this.props.children));
     }
 }
 ReactDOM.render(React.createElement(SvgRoot, { width: w, height: h },
     React.createElement(SvgFile_1.default, { svgUrl: "./shapes/1.svg" }),
     React.createElement(SvgFile_1.default, { svgUrl: "./shapes/2.svg", transform: Matrix2D_1.default.translate(448) }),
-    React.createElement(Draggable_1.default, null,
-        React.createElement(StopMotion_1.default, { frameSeries: [0, 21, 22, 23, 24, 25, 26, 27, 28, 29], loopFrame: 200, triggeredEvent: "newFrame" },
-            null,
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(590, 61) }),
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(571, 37) }),
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(551, 43) }),
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(536, 33) }),
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(516, 35) }),
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(499, 25) }),
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(478, 20) }),
-            React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(458, 11) }),
-            null)),
+    React.createElement(StopMotion_1.default, { frameSeries: [0, 21, 22, 23, 24, 25, 26, 27, 28, 29], loopFrame: 200, triggeredEvent: "newFrame" },
+        null,
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(590, 61) }),
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(571, 37) }),
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(551, 43) }),
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(536, 33) }),
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(516, 35) }),
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(499, 25) }),
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/5.svg", transform: Matrix2D_1.default.translate(478, 20) }),
+        React.createElement(SvgFile_1.default, { svgUrl: "./shapes/6.svg", transform: Matrix2D_1.default.translate(458, 11) }),
+        null),
     React.createElement(SvgFile_1.default, { svgUrl: "./shapes/8.svg", transform: Matrix2D_1.default.translate(440, 1) }),
     React.createElement(SvgFile_1.default, { style: { opacity: 0.9 }, svgUrl: "./shapes/9.svg", transform: Matrix2D_1.default.translate(420) }),
     React.createElement(SvgFile_1.default, { transform: Matrix2D_1.default.translate(420, 93), svgUrl: "./shapes/10.svg" }),

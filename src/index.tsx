@@ -71,16 +71,16 @@ class SvgRoot extends React.Component<SvgRootProps, SvgRootStates>{
       <svg
         width={w * s}
         height={h * s}
-  
+
 
         // Drag elements related events
         onMouseMove={(event: React.MouseEvent<SVGElement>) => this.mouseMoveHandler(event)}
         onMouseUp={(event: React.MouseEvent<SVGElement>) => this.mouseUpOrLeaveHandler(event)}
         onMouseLeave={(event: React.MouseEvent<SVGElement>) => this.mouseUpOrLeaveHandler(event)}
       >
-        <Draggable transform={Matrix2D.scale(s)}>
-          {this.props.children}
-        </Draggable>
+
+        {this.props.children}
+
       </svg>
     );
   }
@@ -98,24 +98,22 @@ ReactDOM.render(
     {/* window glass */}
     <SvgFile svgUrl="./shapes/2.svg" transform={Matrix2D.translate(448)} />
     {/* outside bee */}
-    <Draggable>
-      <StopMotion
-        frameSeries={[0, 21, 22, 23, 24, 25, 26, 27, 28, 29]}
-        loopFrame={200}
-        triggeredEvent="newFrame"
-      >
-        {null}
-        <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(590, 61)} />
-        <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(571, 37)} />
-        <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(551, 43)} />
-        <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(536, 33)} />
-        <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(516, 35)} />
-        <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(499, 25)} />
-        <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(478, 20)} />
-        <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(458, 11)} />
-        {null}
-      </StopMotion>
-    </Draggable>
+    <StopMotion
+      frameSeries={[0, 21, 22, 23, 24, 25, 26, 27, 28, 29]}
+      loopFrame={200}
+      triggeredEvent="newFrame"
+    >
+      {null}
+      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(590, 61)} />
+      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(571, 37)} />
+      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(551, 43)} />
+      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(536, 33)} />
+      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(516, 35)} />
+      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(499, 25)} />
+      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(478, 20)} />
+      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(458, 11)} />
+      {null}
+    </StopMotion>
 
     {/* window frame */}
     <SvgFile svgUrl="./shapes/8.svg" transform={Matrix2D.translate(440, 1)} />
