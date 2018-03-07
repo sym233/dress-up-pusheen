@@ -6,13 +6,13 @@ class SoundsManager {
         node: HTMLAudioElement;
     }[] = [{
         name: '30',
-        node: new Audio('../sounds/30.mp3'),
+        node: new Audio('./sounds/30.mp3'),
     }, {
         name: '17',
-        node: new Audio('../sounds/17.mp3'),
+        node: new Audio('./sounds/17.mp3'),
     }, {
         name: '22',
-        node: new Audio('../sounds/22.mp3'),
+        node: new Audio('./sounds/22.mp3'),
     }];
     play(nameOrIndex: string | number) {
         if (typeof nameOrIndex === 'number') {
