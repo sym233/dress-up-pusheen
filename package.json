@@ -4,6 +4,7 @@
   "description": "pusheen dress up demo",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --optimize-minimize --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,11 +12,16 @@
   "dependencies": {
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
+    "babel-polyfill": "^6.26.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.4.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.7.2"
   }

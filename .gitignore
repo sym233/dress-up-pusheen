@@ -1,2 +1,5 @@
-#[node modules]
-./node_modules/
+# node modules
+node_modules
+
+#
+index.old.ts
