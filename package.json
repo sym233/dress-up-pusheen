@@ -4,7 +4,8 @@
   "description": "pusheen dress up demo",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --optimize-minimize --watch",
+    "start": "webpack --watch",
+	"build": "webpack --optimize-minimize",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -22,6 +23,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
+    "raw-loader": "^0.5.1",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.7.2"
   }

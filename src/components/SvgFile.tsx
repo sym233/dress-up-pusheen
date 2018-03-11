@@ -1,32 +1,46 @@
 import * as React from 'react';
 
-import fetchSvgToElement from '../getSvgComponent';
+import { fetchSvgToElement } from '../getSvgComponent';
 import Matrix2D from '../Matrix2D';
-
+import svgMap from '../svgBundle';
 interface SvgFileProps {
-  svgUrl: string;
+  svgUrl?: string;
+  svgName?: string;
   transform?: Matrix2D;
   style?: any;
 
 }
 interface SvgFileStates {
-  refresh: number;
-  children: React.DOMElement<{}, Element>[];
+  children: React.DOMElement<{}, Element>;
 }
 class SvgFile extends React.Component<SvgFileProps, SvgFileStates>{
   constructor(props: SvgFileProps) {
     super(props);
-    this.state = {
-      refresh: 0,
-      children: null,
-    };
-    fetchSvgToElement(props.svgUrl).then(res => this.setState({
-      children: res,
-    }));
+
+    if (props.svgName && svgMap.has(props.svgName)) {
+      this.state = {
+        children: svgMap.get(props.svgName),
+      };
+    } else {
+      if (props.svgUrl) {
+        this.state = { children: null };
+        fetchSvgToElement(props.svgUrl).then(res => this.setState({
+          children: res,
+        }));
+      }
+    }
   }
 
   componentWillReceiveProps(newProps: SvgFileProps) {
-    if (newProps.svgUrl !== this.props.svgUrl) {
+    if (newProps.svgName && newProps.svgName !== this.props.svgName) {
+      if (svgMap.has(newProps.svgName)) {
+        this.setState({
+          children: svgMap.get(newProps.svgName),
+        });
+      } else {
+        throw new Error(`svg name '${newProps.svgName}' not exists.`);
+      }
+    } else if (newProps.svgUrl && newProps.svgUrl !== this.props.svgUrl) {
       fetchSvgToElement(newProps.svgUrl).then(res => this.setState({
         children: res,
       }));
@@ -44,7 +58,7 @@ class SvgFile extends React.Component<SvgFileProps, SvgFileStates>{
       props.style = this.props.style;
     }
 
-    if (this.state.children) {
+    if (this.state && this.state.children) {
       return (
         <g
           {...props}

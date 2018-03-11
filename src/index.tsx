@@ -11,6 +11,7 @@ import eventManager from './eventManager';
 import soundsManager from './soundManager';
 
 
+
 function linearP(curve: { x: number; y: number }[], x: number): number {
   const l = curve.length;
   for (let i = 0; i < l - 1; i++) {
@@ -94,9 +95,9 @@ class SvgRoot extends React.Component<SvgRootProps, SvgRootStates>{
 ReactDOM.render(
   <SvgRoot width={w} height={h} >
     {/* background */}
-    <SvgFile svgUrl="./shapes/1.svg" />
+    <SvgFile svgName="shape1" />
     {/* window glass */}
-    <SvgFile svgUrl="./shapes/2.svg" transform={Matrix2D.translate(448)} />
+    <SvgFile svgName="shape2" transform={Matrix2D.translate(448)} />
     {/* outside bee */}
     <StopMotion
       frameSeries={[0, 21, 22, 23, 24, 25, 26, 27, 28, 29]}
@@ -104,27 +105,27 @@ ReactDOM.render(
       triggeredEvent="newFrame"
     >
       {null}
-      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(590, 61)} />
-      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(571, 37)} />
-      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(551, 43)} />
-      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(536, 33)} />
-      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(516, 35)} />
-      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(499, 25)} />
-      <SvgFile svgUrl="./shapes/5.svg" transform={Matrix2D.translate(478, 20)} />
-      <SvgFile svgUrl="./shapes/6.svg" transform={Matrix2D.translate(458, 11)} />
+      <SvgFile svgName="shape5" transform={Matrix2D.translate(590, 61)} />
+      <SvgFile svgName="shape6" transform={Matrix2D.translate(571, 37)} />
+      <SvgFile svgName="shape5" transform={Matrix2D.translate(551, 43)} />
+      <SvgFile svgName="shape6" transform={Matrix2D.translate(536, 33)} />
+      <SvgFile svgName="shape5" transform={Matrix2D.translate(516, 35)} />
+      <SvgFile svgName="shape6" transform={Matrix2D.translate(499, 25)} />
+      <SvgFile svgName="shape5" transform={Matrix2D.translate(478, 20)} />
+      <SvgFile svgName="shape6" transform={Matrix2D.translate(458, 11)} />
       {null}
     </StopMotion>
 
     {/* window frame */}
-    <SvgFile svgUrl="./shapes/8.svg" transform={Matrix2D.translate(440, 1)} />
+    <SvgFile svgName="shape8" transform={Matrix2D.translate(440, 1)} />
     {/* window curtain */}
-    <SvgFile style={{ opacity: 0.9 }} svgUrl="./shapes/9.svg" transform={Matrix2D.translate(420)} />
+    <SvgFile style={{ opacity: 0.9 }} svgName="shape9" transform={Matrix2D.translate(420)} />
     {/* window curtain edge */}
-    <SvgFile transform={Matrix2D.translate(420, 93)} svgUrl="./shapes/10.svg" />
+    <SvgFile transform={Matrix2D.translate(420, 93)} svgName="shape10" />
     {/* window curtain rope */}
-    <SvgFile transform={Matrix2D.translate(442, 43)} svgUrl="./shapes/98.svg" />
+    <SvgFile transform={Matrix2D.translate(442, 43)} svgName="shape98" />
     {/* mirror */}
-    <SvgFile transform={Matrix2D.translate(200, -1)} svgUrl="./shapes/102.svg" />
+    <SvgFile transform={Matrix2D.translate(200, -1)} svgName="shape102" />
 
     {/* pusheen */}
     <g
@@ -146,10 +147,10 @@ ReactDOM.render(
           triggeredEvent="newFrame"
           key="face_1"
         >
-          <SvgFile svgUrl="./shapes/11.svg" />
-          <SvgFile svgUrl="./shapes/12.svg" />
-          <SvgFile svgUrl="./shapes/13.svg" />
-          <SvgFile svgUrl="./shapes/14.svg" />
+          <SvgFile svgName="shape11" />
+          <SvgFile svgName="shape12" />
+          <SvgFile svgName="shape13" />
+          <SvgFile svgName="shape14" />
           {/* <StopMotion frameSeries={[0, 1]} loopFrame={2} triggeredEvent="newFrame">
           </StopMotion> */}
         </StopMotion>
@@ -161,8 +162,8 @@ ReactDOM.render(
           triggeredEvent="newFrame"
           key="face_2"
         >
-          <SvgFile svgUrl="./shapes/19.svg" />
-          <SvgFile svgUrl="./shapes/20.svg" />
+          <SvgFile svgName="shape19" />
+          <SvgFile svgName="shape20" />
         </StopMotion>
 
         {/* face 3 */}
@@ -173,10 +174,10 @@ ReactDOM.render(
           triggeredEvent="newFrame"
           key="face_3"
         >
-          <SvgFile svgUrl="./shapes/24.svg" />
-          <SvgFile svgUrl="./shapes/25.svg" />
-          <SvgFile svgUrl="./shapes/26.svg" />
-          <SvgFile svgUrl="./shapes/27.svg" />
+          <SvgFile svgName="shape24" />
+          <SvgFile svgName="shape25" />
+          <SvgFile svgName="shape26" />
+          <SvgFile svgName="shape27" />
         </StopMotion>
       </StopMotion>
     </g>
@@ -205,7 +206,7 @@ ReactDOM.render(
         }];
         const offset = linearP(points, frame);
 
-        return <SvgFile svgUrl="./shapes/129.svg" transform={Matrix2D.translate(640, 145).translated(-offset)} />
+        return <SvgFile svgName="shape129" transform={Matrix2D.translate(640, 145).translated(-offset)} />
       }}
     />
     <FunctionComponent
@@ -231,7 +232,7 @@ ReactDOM.render(
         }];
         const offset = linearP(points, frame);
 
-        return <SvgFile svgUrl="./shapes/125.svg" transform={Matrix2D.translate(90, 450).translated(0, -offset)} />
+        return <SvgFile svgName="shape125" transform={Matrix2D.translate(90, 450).translated(0, -offset)} />
       }}
     />
     <FunctionComponent
@@ -257,193 +258,190 @@ ReactDOM.render(
         }];
         const offset = linearP(points, frame);
 
-        return <SvgFile svgUrl="./shapes/127.svg" transform={Matrix2D.translate(29, 50).translated(0, -offset)} />
+        return <SvgFile svgName="shape127" transform={Matrix2D.translate(29, 50).translated(0, -offset)} />
       }}
     />
-    {/* <Draggable transform={Matrix2D.translate(400, 200)}>
-      <SvgFile svgUrl="./shapes/127.svg" />
-    </Draggable> */}
 
     {/* high-heeled shoes */}
     <Draggable transform={Matrix2D.translate(50, 218)}>
-      <SvgFile svgUrl="./shapes/33.svg" />
+      <SvgFile svgName="shape33" />
     </Draggable>
     {/* socks */}
     <Draggable transform={Matrix2D.translate(6, 222)}>
-      <SvgFile svgUrl="./shapes/35.svg" />
+      <SvgFile svgName="shape35" />
     </Draggable>
     {/* red boots */}
     <Draggable transform={Matrix2D.translate(16, 230)}>
-      <SvgFile svgUrl="./shapes/37.svg" />
+      <SvgFile svgName="shape37" />
     </Draggable>
     {/* party hat */}
     <Draggable transform={Matrix2D.translate(59, 112)}>
-      <SvgFile svgUrl="./shapes/39.svg" />
+      <SvgFile svgName="shape39" />
     </Draggable>
     {/* arrow and heart */}
     {/* <Draggable transform={Matrix2D.translate(16, 230)}>
-      <SvgFile svgUrl="./shapes/41.svg" />
+      <SvgFile svgName="shape41" />
     </Draggable> */}
     {/* heart */}
     {/* <Draggable transform={Matrix2D.translate(16, 230)}>
-      <SvgFile svgUrl="./shapes/43.svg" />
+      <SvgFile svgName="shape43" />
     </Draggable> */}
     {/* star */}
     {/* <Draggable transform={Matrix2D.translate(16, 230)}>
-      <SvgFile svgUrl="./shapes/45.svg" />
+      <SvgFile svgName="shape45" />
     </Draggable> */}
     {/* fox tail */}
     <Draggable transform={Matrix2D.translate(527, 286)}>
-      <SvgFile svgUrl="./shapes/47.svg" />
+      <SvgFile svgName="shape47" />
     </Draggable>
     {/* wing */}
     <Draggable transform={Matrix2D.translate(0, 175)}>
-      <SvgFile svgUrl="./shapes/49.svg" />
+      <SvgFile svgName="shape49" />
     </Draggable>
     {/* paw */}
     <Draggable transform={Matrix2D.translate(16, 230)}>
-      <SvgFile svgUrl="./shapes/51.svg" />
+      <SvgFile svgName="shape51" />
     </Draggable>
     {/* black boots */}
     <Draggable transform={Matrix2D.translate(26, 230)}>
-      <SvgFile svgUrl="./shapes/53.svg" />
+      <SvgFile svgName="shape53" />
     </Draggable>
     {/* cowboy hat */}
     <Draggable transform={Matrix2D.translate(35, 158)}>
-      <SvgFile svgUrl="./shapes/55.svg" />
+      <SvgFile svgName="shape55" />
     </Draggable>
     {/* long boots */}
     <Draggable transform={Matrix2D.translate(0, 208)}>
-      <SvgFile svgUrl="./shapes/57.svg" />
+      <SvgFile svgName="shape57" />
     </Draggable>
     {/* black hair */}
     <Draggable transform={Matrix2D.translate(24, 94)}>
-      <SvgFile svgUrl="./shapes/59.svg" />
+      <SvgFile svgName="shape59" />
     </Draggable>
     {/* saddle */}
     <Draggable transform={Matrix2D.translate(10, 100)}>
-      <SvgFile svgUrl="./shapes/61.svg" />
+      <SvgFile svgName="shape61" />
     </Draggable>
     {/* unknown staff 1 */}
     <Draggable transform={Matrix2D.translate(6, 80)}>
-      <SvgFile svgUrl="./shapes/63.svg" />
+      <SvgFile svgName="shape63" />
     </Draggable>
     {/* unknown staff 2 */}
     <Draggable transform={Matrix2D.translate(473, 294)}>
-      <SvgFile svgUrl="./shapes/65.svg" />
+      <SvgFile svgName="shape65" />
     </Draggable>
     {/* beak */}
     <Draggable transform={Matrix2D.translate(8, 89)}>
-      <SvgFile svgUrl="./shapes/67.svg" />
+      <SvgFile svgName="shape67" />
     </Draggable>
     {/* moustache */}
     <Draggable transform={Matrix2D.translate(13, 53)}>
-      <SvgFile svgUrl="./shapes/69.svg" />
+      <SvgFile svgName="shape69" />
     </Draggable>
     {/* green mask */}
     <Draggable transform={Matrix2D.translate(459, 277)}>
-      <SvgFile svgUrl="./shapes/71.svg" />
+      <SvgFile svgName="shape71" />
     </Draggable>
     {/* shit */}
     <Draggable transform={Matrix2D.translate(510, 272)}>
-      <SvgFile svgUrl="./shapes/73.svg" />
+      <SvgFile svgName="shape73" />
     </Draggable>
     {/* rabbit ears */}
     <Draggable transform={Matrix2D.translate(455, 262)}>
-      <SvgFile svgUrl="./shapes/75.svg" />
+      <SvgFile svgName="shape75" />
     </Draggable>
     {/* pirate hat */}
     <Draggable transform={Matrix2D.translate(491, 298)}>
-      <SvgFile svgUrl="./shapes/77.svg" />
+      <SvgFile svgName="shape77" />
     </Draggable>
     {/* crown */}
     <Draggable transform={Matrix2D.translate(448, 298)}>
-      <SvgFile svgUrl="./shapes/79.svg" />
+      <SvgFile svgName="shape79" />
     </Draggable>
     {/* tiger mask */}
     <Draggable transform={Matrix2D.translate(451, 289)}>
-      <SvgFile svgUrl="./shapes/81.svg" />
+      <SvgFile svgName="shape81" />
     </Draggable>
     {/* gold hair */}
     <Draggable transform={Matrix2D.translate(479, 247)}>
-      <SvgFile svgUrl="./shapes/83.svg" />
+      <SvgFile svgName="shape83" />
     </Draggable>
     {/* black hat */}
     <Draggable transform={Matrix2D.translate(472, 282)}>
-      <SvgFile svgUrl="./shapes/85.svg" />
+      <SvgFile svgName="shape85" />
     </Draggable>
 
     {/* round glasses and lenses*/}
     <Draggable transform={Matrix2D.translate(485, 293)}>
-      <SvgFile svgUrl="./shapes/87.svg" transform={Matrix2D.translate(1, 1)} style={{ opacity: 0.7 }} />
-      <SvgFile svgUrl="./shapes/88.svg" />
+      <SvgFile svgName="shape87" transform={Matrix2D.translate(1, 1)} style={{ opacity: 0.7 }} />
+      <SvgFile svgName="shape88" />
     </Draggable>
 
     {/* sunglasses and lenses */}
     <Draggable transform={Matrix2D.translate(444, 285)}>
-      <SvgFile svgUrl="./shapes/90.svg" transform={Matrix2D.translate(2, 2)} style={{ opacity: 0.7 }} />
-      <SvgFile svgUrl="./shapes/91.svg" />
+      <SvgFile svgName="shape90" transform={Matrix2D.translate(2, 2)} style={{ opacity: 0.7 }} />
+      <SvgFile svgName="shape91" />
     </Draggable>
     {/* heart glasses */}
     <Draggable transform={Matrix2D.translate(450, 288)}>
-      <SvgFile svgUrl="./shapes/93.svg" />
+      <SvgFile svgName="shape93" />
     </Draggable>
     {/* single glass and lens */}
     <Draggable transform={Matrix2D.translate(460, 270)}>
-      <SvgFile svgUrl="./shapes/95.svg" transform={Matrix2D.translate(1, 1)} style={{ opacity: 0.7 }} />
-      <SvgFile svgUrl="./shapes/96.svg" />
+      <SvgFile svgName="shape95" transform={Matrix2D.translate(1, 1)} style={{ opacity: 0.7 }} />
+      <SvgFile svgName="shape96" />
     </Draggable>
     {/* couch */}
-    <SvgFile style={{ pointerEvents: 'none' }} svgUrl="./shapes/99.svg" transform={Matrix2D.translate(-1, 35)} />
+    <SvgFile style={{ pointerEvents: 'none' }} svgName="shape99" transform={Matrix2D.translate(-1, 35)} />
     {/* toyz */}
-    <SvgFile style={{ pointerEvents: 'none' }} transform={Matrix2D.translate(444, 258)} svgUrl="./shapes/101.svg" />
+    <SvgFile style={{ pointerEvents: 'none' }} transform={Matrix2D.translate(444, 258)} svgName="shape101" />
     {/* bear toy */}
-    <SvgFile svgUrl="./shapes/100.svg" transform={Matrix2D.translate(70, 51)} />
+    <SvgFile svgName="shape100" transform={Matrix2D.translate(70, 51)} />
     {/* fox toy */}
     <Draggable transform={Matrix2D.translate(-26, 93)}>
-      <SvgFile svgUrl="./shapes/103.svg" />
+      <SvgFile svgName="shape103" />
     </Draggable>
     {/* rabbit toy */}
     <Draggable transform={Matrix2D.translate(27, 111)}>
-      <SvgFile svgUrl="./shapes/105.svg" />
+      <SvgFile svgName="shape105" />
     </Draggable>
     {/* bear's nose */}
     <Draggable transform={Matrix2D.translate(98, 107)}>
-      <SvgFile svgUrl="./shapes/110.svg" />
+      <SvgFile svgName="shape110" />
     </Draggable>
     {/* 2 bowknots */}
     <Draggable transform={Matrix2D.translate(434, 36)}>
-      <SvgFile svgUrl="./shapes/108.svg" />
+      <SvgFile svgName="shape108" />
     </Draggable>
     <Draggable transform={Matrix2D.translate(582, 36)}>
-      <SvgFile svgUrl="./shapes/108.svg" />
+      <SvgFile svgName="shape108" />
     </Draggable>
     {/* 2 blinking stars */}
     <Draggable transform={Matrix2D.translate(227, 24)}>
       <StopMotion frameSeries={[0, 1]} loopFrame={2} triggeredEvent="newFrame">
-        <SvgFile svgUrl="./shapes/113.svg" />
-        <SvgFile svgUrl="./shapes/114.svg" />
+        <SvgFile svgName="shape113" />
+        <SvgFile svgName="shape114" />
       </StopMotion>
     </Draggable>
     <Draggable transform={Matrix2D.translate(233, 6)}>
       <StopMotion frameSeries={[0, 1]} loopFrame={2} triggeredEvent="newFrame">
-        <SvgFile svgUrl="./shapes/113.svg" />
-        <SvgFile svgUrl="./shapes/114.svg" />
+        <SvgFile svgName="shape113" />
+        <SvgFile svgName="shape114" />
       </StopMotion>
     </Draggable>
     <Draggable transform={Matrix2D.translate(-40, -145)}>
       <StopMotion frameSeries={[0, 1]} loopFrame={2} triggeredEvent="newFrame">
-        <SvgFile svgUrl="./shapes/119.svg" />
-        <SvgFile svgUrl="./shapes/120.svg" />
+        <SvgFile svgName="shape119" />
+        <SvgFile svgName="shape120" />
       </StopMotion>
     </Draggable>
     {/* origin logo */}
     <Draggable transform={Matrix2D.translate(481, 405)}>
-      <SvgFile svgUrl="./shapes/116.svg" />
+      <SvgFile svgName="shape116" />
     </Draggable>
     {/* bear's flower */}
     <Draggable transform={Matrix2D.translate(139, 80)}>
-      <SvgFile svgUrl="./shapes/122.svg" />
+      <SvgFile svgName="shape122" />
     </Draggable>
   </SvgRoot>,
   document.getElementById('app')

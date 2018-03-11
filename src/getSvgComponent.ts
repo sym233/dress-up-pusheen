@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 
-function parseSvg(svgContent: string): React.DOMElement<{}, Element>[] {
+function parseSvg(svgContent: string): React.DOMElement<{}, Element> {
 
   function svgToComponent(dom: Element): React.DOMElement<{}, Element> {
 
@@ -56,9 +56,15 @@ function parseSvg(svgContent: string): React.DOMElement<{}, Element>[] {
 
   if (svgDom && svgDom.nodeName === 'svg') {
     if (svgDom.childElementCount === 0) {
-      return [];
-    } else {
-      return Array.from(svgDom.children, child => svgToComponent(child));
+      return null;
+    } else if (svgDom.childElementCount === 1){
+      return svgToComponent(svgDom.children[0]);
+    }else{
+      const children = [];
+      for(const child of svgDom.children){
+        children.push(svgToComponent(child));
+      }
+      return React.createElement('g', {}, ...children);
     }
   } else {
     throw new Error(`parse svg error, "svg" element expected, ${svgDom ? svgDom.nodeName : 'empty element'} instead.`);
@@ -69,9 +75,9 @@ function fetchText(url: string): Promise<string> {
   return fetch(url).then(res => res.text());
 }
 
-const cache = new Map<string, React.DOMElement<{}, Element>[]>();
+const cache = new Map<string, React.DOMElement<{}, Element>>();
 
-function fetchSvgToElement(url: string): Promise<React.DOMElement<{}, Element>[]> {
+function fetchSvgToElement(url: string): Promise<React.DOMElement<{}, Element>> {
   if (cache.has(url)) {
     return Promise.resolve(cache.get(url));
   } else {
@@ -83,4 +89,4 @@ function fetchSvgToElement(url: string): Promise<React.DOMElement<{}, Element>[]
 
 }
 
-export default fetchSvgToElement;
+export { fetchSvgToElement, parseSvg };
